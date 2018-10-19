@@ -13,3 +13,46 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #6c6b6b;
+}
+
+
+.wrapper p{
+  margin:20px;
+}
+.content{
+  margin:40px;
+}
+
+.book-detail{
+  padding: 10px 10px 10px 0;
+}
+
+.width{
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+.title,.impression{
+  margin: 20px 0 20px 40px;
+}
+.btn-primary{
+  margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+<div class="profile-container">
+                <h2>User Info</h2>
+                <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img" %>
+
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <th>name</th>
+                      <th><%= user.name %></th>
+                    </tr>
+                    <tr>
+                      <th>introduction</th>
+                      <th><%= user.profile %></th>
+                    </tr>
+                  </tbody>
+                </table>
+
+              <% if user.id == current_user.id %>
+                  <div class="row">
+                    <%= link_to "プロフィール編集", edit_user_path(user), class: "pull-right col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+                  </div>
+              <% end %>
+</div>

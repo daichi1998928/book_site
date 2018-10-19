@@ -1,15 +1,48 @@
 
-<h1>編集作業</h1>
 
-<%= form_for (@book) do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
 
-  <h4>タイトル</h4>
+      <h1 class="">Editing Book</h1>
 
-  <%= f.text_field :title %>
+      <div class="edit-box">
+        <%= form_for (@book) do |f|  %>
+          <div class="row">
+            <h4 class="">タイトル</h4>
 
-  <h4>感想</h4>
+            <%= f.text_field :title, class: "col-xs-12" %>
+          </div>
 
-  <%= f.text_area :body %>
+          <div class="row">
+            <h4 class="width">感想</h4>
 
-  <%= f.submit '編集完了' %>
-<% end %>
+            <%= f.text_area :body, class: "col-xs-12" %>
+          </div>
+
+            <div class="row">
+              <%= f.submit 'Update Book', class: "btn btn-primary col-xs-12 " %>
+            </div>
+
+            <%= link_to "show", book_path(@book) %>
+            |
+            <%= link_to "Back", books_path %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-3 col-xs-offset-9">
+        <p>CopyRight Infratop.inc</p>
+      </div>
+
+    </div>
+  </div>
+
+</footer>
+
+

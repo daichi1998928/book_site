@@ -1,0 +1,26 @@
+<div class="container">
+   <div class="row">
+     <div class="col-xs-3">
+        <%= render 'users/profile', user: @user %>
+        <%= render 'books/new', book: @book %>
+     </div>
+     <div class="col-xs-9">
+        <table class="main-wrapper table table-striped">
+          <h1>Users</h1>
+            <thead>
+              <tr>
+                <th>image</th>
+                <th>name</th>
+              </tr>
+            </thead>
+          <% @users.each do |user| %>
+            <tr>
+              <td class="profile-image"><%= attachment_image_tag user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb"%></td>
+              <td class="user-detail"><%= user.name %></td>
+              <td class="user-show"><%= link_to "show",user_path(user) %></td>
+            </tr>
+           <% end %>
+        </table>
+     </div>
+  </div>
+</div>
