@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
    validates :profile,length: {maximum: 50}
    has_many :post_comments, dependent: :destroy
+   has_many :favorites, dependent: :destroy
 
    has_many :books, dependent: :destroy
 

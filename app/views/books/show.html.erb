@@ -25,9 +25,22 @@
                     <td class="book-detail"><a><%= link_to "edit", edit_book_path(@book_show), class: "btn-sm btn-success" %></a></td>
                     <td class="book-detail"><a><%= link_to "削除", book_path(@book_show), method: :delete, class: "btn-sm btn-danger"   %></a></td>
                   <% end %>
-
-                  <td class="fa fa-commnet">
-                    <a href="#comments"><%= @book_show.post_comments.count %></a>
+                  <td >
+                    <% if @book_show.favorited_by?(current_user) %>
+                      <li>
+                        <i class="fa fa-heart" aria-hidden="true" style= "color: red;"></i>
+                        <%= link_to book_favorites_path(@book_show), method: :delete do %>
+                          <%= @book_show.favorites.count %> いいね
+                        <% end %>
+                      </li>
+                    <% else %>
+                      <li>
+                        <%= link_to book_favorites_path(@book_show), method: :post do %>
+                          <i class="fa fa-heart" ></i>
+                          <%= @book_show.favorites.count %> いいね
+                        <% end %>
+                      </li>
+                    <% end %>
                   </td>
 
 
@@ -61,7 +74,7 @@
                                       <span class="comment-meta">
                                         <span class="comment-date"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
                                       </span>
-                                  <%= post_comment.comment %>
+                                      <span><%= post_comment.comment %></span>
                                 <% if post_comment.user == current_user %>
                                   <%= link_to "削除", book_post_comments_path(@book_show), method: :delete, class: "btn-sm btn-danger"   %>
 
