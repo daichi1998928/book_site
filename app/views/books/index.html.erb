@@ -26,6 +26,7 @@
         </td>
         <td class="book-detail"><%= link_to book.title, book_path(book) %></td>
         <td class="book-detail"><%= book.body %></td>
+        <td> <%= link_to "#{book.post_comments.count} コメント", book_path(book) %></td>
 
       </tr>
 

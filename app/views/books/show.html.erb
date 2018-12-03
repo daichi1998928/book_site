@@ -25,8 +25,57 @@
                     <td class="book-detail"><a><%= link_to "edit", edit_book_path(@book_show), class: "btn-sm btn-success" %></a></td>
                     <td class="book-detail"><a><%= link_to "削除", book_path(@book_show), method: :delete, class: "btn-sm btn-danger"   %></a></td>
                   <% end %>
+
+                  <td class="fa fa-commnet">
+                    <a href="#comments"><%= @book_show.post_comments.count %></a>
+                  </td>
+
+
+
+
               </tr>
           </table>
+
+          <div class="comment-list bt style-2" id="comments">
+              <div class="float-wrapper">
+                  <h2 class="comment-count"><%= @book_show.post_comments.count %>件コメント</h2>
+              </div>
+
+              <%= form_for [@book_show, @post_comment] do |f| %>
+                  <div class="row">
+                      <div class="col-sm-12">
+                          <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+                      </div>
+                  </div>
+                  <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+              <% end %>
+
+
+              <ol>
+                  <% @book_show.post_comments.each do |post_comment| %>
+                      <li class="comment">
+                          <div class="comment-body bb">
+                              <div class="comment-text">
+                                  <div class="comment-author clearfix">
+                                      <a href="#" class="link-author"><%= post_comment.user.name %></a>
+                                      <span class="comment-meta">
+                                        <span class="comment-date"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
+                                      </span>
+                                  <%= post_comment.comment %>
+                                <% if post_comment.user == current_user %>
+                                  <%= link_to "削除", book_post_comments_path(@book_show), method: :delete, class: "btn-sm btn-danger"   %>
+
+                                <% end %>
+                              </div>
+                          </div>
+                      </li>
+                  <% end %>
+                </ol>
+          </div>
+
+
+
+
         </div>
     </div>
 

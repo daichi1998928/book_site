@@ -8,6 +8,7 @@ class User < ApplicationRecord
    length: { minimum: 2, maximum: 20 }, uniqueness: true
 
    validates :profile,length: {maximum: 50}
+   has_many :post_comments, dependent: :destroy
 
    has_many :books, dependent: :destroy
 
