@@ -68,6 +68,7 @@ gem "refile-mini_magick"
 
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'pry-rails'
 
 group :production do
   # Gemfileの1番下に追加しましょう。
