@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'relationships/destroy'
   devise_for :users
   root 'root#index'
+  get 'books/search', action: :search, controller: 'books' ,as: 'books_search'
   resources :books do
     resource :post_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
