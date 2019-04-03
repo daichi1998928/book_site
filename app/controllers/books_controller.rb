@@ -56,6 +56,11 @@
 
   end
 
+  def search
+    @search_books = Book.search(params[:title])
+  end
+
+
   private
 
   def book_params
