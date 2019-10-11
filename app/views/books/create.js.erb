@@ -1,3 +1,4 @@
 $("#books_table").html("<%= j(render 'books/books_table', books: @books) %>");
+$("#current_user_books").html("<%= j(render 'books/current_user_books', books: @current_user_books,user: @user) %>");
 $('#text_field').val('');
 $('#text_area').val('');

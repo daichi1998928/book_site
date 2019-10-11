@@ -23,6 +23,8 @@
     book.user_id = current_user.id
     if book.save
       @books = Book.all
+      @current_user_books = current_user.books
+      @user = current_user
       render :create 
     else
       redirect_to user_path(current_user)
