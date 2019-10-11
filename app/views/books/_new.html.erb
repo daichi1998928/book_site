@@ -1,14 +1,14 @@
-<div class="new-book ">
+<div class="new-book " id="new_book">
     <h3 class="width">New Book</h3>
 
-        <%= form_for(book) do |f| %>
+        <%= form_with model: book do |f| %>
 
                 <div class="field ">
                   <div class="">
                     <%= f.label :title %>
                   </div>
                   <div class="row">
-                    <%= f.text_field :title, class: "col-xs-12" %>
+                    <%= f.text_field :title, class: "col-xs-12",id:"text_field" %>
                   </div>
                 </div>
 
@@ -18,7 +18,7 @@
                   </div>
                   <div class="row">
                     <div class="">
-                      <%= f.text_area :body, class: "col-xs-12" %>
+                      <%= f.text_area :body, class: "col-xs-12",id:"text_area" %>
                     </div>
                   </div>
 
