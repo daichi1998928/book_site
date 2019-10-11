@@ -22,11 +22,11 @@
     book = Book.new(book_params)
     book.user_id = current_user.id
     if book.save
-      redirect_to book_path(book)
+      @books = Book.all
+      render :create 
     else
       redirect_to user_path(current_user)
     end
-    @book = book
 
   end
 
